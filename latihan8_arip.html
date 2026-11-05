@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animasi Web Design</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow-x: hidden;
+            padding-top: 10px;
+        }
+
+        /* Container Area Animasi */
+        .stage {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Bola: Berubah Warna dan Tepat Menyentuh Garis Banner */
+        .ball {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-bottom: 0; /* Pas menempel di atas banner tanpa berdempetan/tumpuk */
+            position: relative;
+            z-index: 2;
+            animation: bounceAndColor 4s infinite alternate ease-in-out;
+        }
+
+        /* Strip / Banner Hijau Tosca Muda */
+        .banner {
+            width: 100%;
+            height: 70px;
+            background-color: #88ffd6;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        /* Teks Berjalan dengan Gelombang Halus (Dikit Banget) */
+        .wave-text {
+            position: absolute;
+            white-space: nowrap;
+            color: #ff0000;
+            font-size: 35px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            animation: subtleWave 8s infinite linear;
+        }
+
+        /* Animasi Bola: Geser Ujung ke Ujung + Ganti Warna Dinamis */
+        @keyframes bounceAndColor {
+            0% {
+                transform: translateX(0);
+                background-color: #26f0e4; /* Tosca terang */
+            }
+            25% {
+                background-color: #00d2ff; /* Cyan cerah */
+            }
+            50% {
+                background-color: #6ee7b7; /* Mint segar */
+            }
+            75% {
+                background-color: #38bdf8; /* Biru langit */
+            }
+            100% {
+                transform: translateX(calc(100vw - 200px));
+                background-color: #2dd4bf; /* Tosca neon */
+            }
+        }
+
+        /* Animasi Teks: Kanan ke Kiri + Gelombang Halus (±3px) */
+        @keyframes subtleWave {
+            0% {
+                transform: translate(100vw, 0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+                transform: translate(80vw, -3px); /* Naik tipis */
+            }
+            25% {
+                transform: translate(60vw, 3px);  /* Turun tipis */
+            }
+            40% {
+                transform: translate(40vw, -3px);
+            }
+            55% {
+                transform: translate(20vw, 3px);
+            }
+            70% {
+                transform: translate(0vw, -3px);
+            }
+            85% {
+                opacity: 1;
+                transform: translate(-20vw, 3px);
+            }
+            100% {
+                transform: translate(-100%, 0);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stage">
+        <!-- Bola Bergerak & Berubah Warna -->
+        <div class="ball"></div>
+
+        <!-- Banner Teks -->
+        <div class="banner">
+        <span class="wave-text">Selamat Belajar Transition & Animation</span>
+        </div>
+    </div>
+
+</body>
+</html>
